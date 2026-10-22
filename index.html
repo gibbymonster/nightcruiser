@@ -330,8 +330,8 @@ function drive(c,dt){
 const DN=new Map();
 const donutAt=(i,j)=>{const h=hsh(i,j);if((h>>>11)%3)return null;const k=i+','+j;if(DN.get(k)>time)return null;const t=B*(.25+((h>>>5)&7)/16);return(h&1)?{k,x:i*B+t,y:j*B}:{k,x:i*B,y:j*B+t}};
 function drawDonut(x,y){g.save();g.translate(x,y);g.rotate(time*.8);g.shadowColor='#ff5fb0';g.shadowBlur=14;g.fillStyle='#d99a4e';g.beginPath();g.arc(0,0,10,0,7);g.fill();g.shadowBlur=0;g.fillStyle='#ff7ab8';g.beginPath();g.arc(0,0,8.5,0,7);g.fill();g.fillStyle='#14141f';g.beginPath();g.arc(0,0,3.3,0,7);g.fill();for(let k=0;k<7;k++){const a=k*.9;g.fillStyle=['#fff','#7df9ff','#ffe066','#b6ff3b'][k%4];g.fillRect(Math.cos(a)*6-1.2,Math.sin(a)*6-.5,2.4,1)}g.restore()}
-function eat(){if(gopen)return;if(p.don<1)return toast('No donuts');p.don--;p.boost=220;toast('Donut boost: +100 mph for 2:00')}
-function bribe(){if(gopen)return;let bi=-1,bd=120;cops.forEach((c,i)=>{const d=Math.hypot(c.x-p.x,c.y-p.y);if(d<bd){bd=d;bi=i}});if(bi<0)return toast('No cop nearby');if(p.don<1)return toast('No donuts to bribe with');p.don--;const c=cops[bi];if(c.chase){cops[bi]=newCop();cops[bi].bribed=time+45}else c.bribed=time+45;toast('Cop bribed. Donut accepted')}
+function eat(){if(gopen)return;if(p.don<1)return toast('No donuts');p.don--;p.boost=1003;toast('Donut boost: +100 mph for 2:00')}
+function bribe(){if(gopen)return;let bi=-1,bd=120;cops.forEach((c,i)=>{const d=Math.hypot(c.x-p.x,c.y-p.y);if(d<bd){bd=d;bi=i}});if(bi<0)return toast('No cop nearby');if(p.don<1)return toast('you ate all of the donuts fat bozo');p.don--;const c=cops[bi];if(c.chase){cops[bi]=newCop();cops[bi].bribed=time+45}else c.bribed=time+45;toast('Cop bribed. Donut accepted')}
 document.getElementById('tbE').addEventListener('pointerdown',e=>{e.preventDefault();eat()});document.getElementById('tbB').addEventListener('pointerdown',e=>{e.preventDefault();bribe()});
 /* ---- pedestrians ---- */
 const PK=50,cp=n=>[n.i*B+n.sx*PK,n.j*B+n.sy*PK];
