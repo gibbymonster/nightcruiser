@@ -1,3 +1,92 @@
+
+
+Pasted text.txt
+Document
+increase the bank robbery pay and make the helicopters look nicer
+
+
+
+
+Updated Night Cruiser! I increased the bank robbery rewards and redesigned the police helicopters to look much more detailed.
+
+Flucht durch Köln endet am Leystapel: Zwei Männer festgenommen – Zivilbeamter angefahren und verletzt - Köln
+1. Better-looking police helicopters
+
+Detailed metallic body and cockpit windows
+
+Blue police markings and readable POLICE label
+
+Animated main and tail rotors
+
+Landing skids, searchlight pods, and flashing lights
+
+Brighter, softer sweeping searchlight beams
+
+Пять бизнесменов из Краснодарского края и уроженец Дагестана вошли в глобальный рейтинг миллиардеров Forbes
+2. Much bigger bank robbery payouts
+
+Previous reward range: $1,800–$5,199
+
+New reward range: $6,000–$14,999
+
+Regular house and building robbery rewards remain unchanged.
+
+Police backup and roadblocks still activate after a successful bank robbery.
+
+Download your updated game
+Night Cruiser — Upgraded Edition
+
+HTML game · Ready to download
+
+Download the updated game
+
+I also checked the JavaScript syntax. Download the HTML file and open it in your browser to play.
+
+
+night-cruiser-upgraded-bank-helicopters.html
+HTML
+ok now add motorcycles that go super fast
+Done! 🏍️ I added super-fast motorcycles to Night Cruiser.
+
+Futuristic Motorcycle Design
+New Superbike
+
+Extreme acceleration and a much higher top speed.
+
+Sporty motorcycle design with glowing accents, wheels, headlights, and taillights.
+
+Neon underglow and a cyan tire trail.
+
+How to use it: Open the garage (G button), choose Superbike from the preset list, and drive with W or the up arrow. Its speed can reach up to 300 mph in the game.
+
+Download Night Cruiser with Superfast Motorcycles
+
+I also checked the JavaScript syntax after the changes.
+
+
+night-cruiser-upgraded-bank-helicopters.html
+HTML
+let me copy the code
+Here’s the full Night Cruiser HTML source code in a copy-friendly text file.
+
+Night Cruiser — Full Source Code
+
+HTML · about 101 KB · complete game file
+
+Open or download the copyable source code (.txt)
+
+Download the playable game (.html)
+
+To copy all the code: Open the .txt file, press Ctrl + A to select everything, then Ctrl + C to copy it. You can paste it wherever you need with Ctrl + V.
+
+The text file contains the same HTML source as the playable game.
+
+
+night-cruiser-upgraded-bank-helicopters.html
+HTML
+
+night-cruiser-source-code.txt
+Document
 <!DOCTYPE html><html lang="en"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%2310101a'/%3E%3Crect x='21' y='11' width='22' height='42' rx='8' fill='%23ff2e4d'/%3E%3Crect x='24' y='19' width='16' height='9' rx='2' fill='%230c1424'/%3E%3C/svg%3E">
@@ -328,29 +417,52 @@ function drawRoadblocks(){
 }
 function drawPoliceHeli(){
  if(time>policeHeliUntil)return;
- const a=(time-policeHeliPhase)*.62, hx=p.x+Math.cos(a)*245,hy=p.y+Math.sin(a)*175;
- // Two sweeping, feathered searchlight beams follow the circling aircraft.
+ const a=(time-policeHeliPhase)*.62,hx=p.x+Math.cos(a)*245,hy=p.y+Math.sin(a)*175;
+ // Broad, soft twin searchlights sweep beneath a detailed patrol helicopter.
  g.save();g.globalCompositeOperation='lighter';
  const sweep=Math.sin(time*2.8)*.55;
  for(let k=0;k<2;k++){
-  const bx=hx+(k?18:-18),by=hy+8,ang=1.1+sweep+(k?-.42:.42);
+  const bx=hx+(k?13:-13),by=hy+7,ang=1.1+sweep+(k?-.42:.42);
   g.save();g.translate(bx,by);g.rotate(ang);
-  const beam=g.createLinearGradient(0,0,0,260);
-  beam.addColorStop(0,`rgba(190,244,255,${.18+.08*Math.sin(time*6+k)})`);
-  beam.addColorStop(1,'rgba(190,244,255,0)');
-  g.fillStyle=beam;g.beginPath();g.moveTo(-9,0);g.lineTo(-72,260);g.quadraticCurveTo(0,286,72,260);g.lineTo(9,0);g.closePath();g.fill();
+  const beam=g.createLinearGradient(0,0,0,290);
+  beam.addColorStop(0,`rgba(190,244,255,${.23+.09*Math.sin(time*6+k)})`);
+  beam.addColorStop(.55,'rgba(190,244,255,.09)');beam.addColorStop(1,'rgba(190,244,255,0)');
+  g.fillStyle=beam;g.beginPath();g.moveTo(-6,0);g.lineTo(-78,275);g.quadraticCurveTo(0,302,78,275);g.lineTo(6,0);g.closePath();g.fill();
   g.restore();
  }
  g.globalCompositeOperation='source-over';
- // Helicopter silhouette and flashing anti-collision lights.
  g.translate(hx,hy);g.rotate(a+Math.PI/2);
- g.fillStyle='rgba(0,0,0,.35)';g.beginPath();g.ellipse(2,6,34,14,0,0,Math.PI*2);g.fill();
- g.fillStyle='#172538';g.strokeStyle='#b8d8e9';g.lineWidth=2;
- g.beginPath();g.ellipse(0,0,25,11,0,0,Math.PI*2);g.fill();g.stroke();
- g.fillStyle='#7df9ff';g.beginPath();g.ellipse(12,0,10,8,0,0,Math.PI*2);g.fill();
- g.strokeStyle='#c5d8e5';g.lineWidth=3;g.beginPath();g.moveTo(-21,0);g.lineTo(-43,0);g.moveTo(-43,-5);g.lineTo(-43,5);g.moveTo(-4,-2);g.lineTo(-4,2);g.stroke();
- g.strokeStyle='#e6f7ff';g.lineWidth=2;g.beginPath();g.moveTo(-3,0);g.lineTo(3,0);g.moveTo(0,-31);g.lineTo(0,31);g.stroke();
- g.fillStyle=Math.sin(time*13)>0?'#ff334f':'#7df9ff';g.beginPath();g.arc(0,-10,3.5,0,Math.PI*2);g.fill();
+ // Soft shadow and aircraft body with layered metallic highlights.
+ g.fillStyle='rgba(0,0,0,.35)';g.beginPath();g.ellipse(3,9,38,15,0,0,Math.PI*2);g.fill();
+ // tail boom and tail fin
+ g.strokeStyle='#263b50';g.lineWidth=7;g.lineCap='round';g.beginPath();g.moveTo(-21,0);g.lineTo(-49,0);g.stroke();
+ g.strokeStyle='#8ba9bc';g.lineWidth=1.5;g.beginPath();g.moveTo(-24,-1);g.lineTo(-48,-1);g.stroke();
+ g.fillStyle='#27394d';g.strokeStyle='#a8c6d8';g.lineWidth=1.5;
+ g.beginPath();g.moveTo(-43,-2);g.lineTo(-48,-11);g.lineTo(-53,-10);g.lineTo(-51,3);g.closePath();g.fill();g.stroke();
+ g.fillStyle='#405a70';g.beginPath();g.ellipse(-48,0,4,7,0,0,Math.PI*2);g.fill();g.stroke();
+ // main fuselage
+ const metal=g.createLinearGradient(0,-13,0,13);metal.addColorStop(0,'#d5e7f1');metal.addColorStop(.22,'#526e84');metal.addColorStop(.6,'#1a2b40');metal.addColorStop(1,'#0c1726');
+ g.fillStyle=metal;g.strokeStyle='#d2e8f3';g.lineWidth=1.7;g.beginPath();g.ellipse(0,0,27,12,0,0,Math.PI*2);g.fill();g.stroke();
+ // side armor panels and blue police livery
+ g.fillStyle='#15283b';g.beginPath();g.ellipse(-2,5,18,5,0,0,Math.PI*2);g.fill();
+ g.strokeStyle='#7df9ff';g.lineWidth=2;g.beginPath();g.moveTo(-15,8);g.lineTo(13,8);g.stroke();
+ g.fillStyle='#eafaff';g.font='bold 5px Orbitron,sans-serif';g.textAlign='center';g.textBaseline='middle';g.fillText('POLICE',-1,4);
+ // segmented cockpit glazing
+ g.fillStyle='#8df4ff';g.strokeStyle='#e1fbff';g.lineWidth=1;
+ g.beginPath();g.moveTo(8,-8);g.quadraticCurveTo(22,-7,25,0);g.quadraticCurveTo(20,6,9,7);g.quadraticCurveTo(13,0,8,-8);g.closePath();g.fill();g.stroke();
+ g.strokeStyle='rgba(255,255,255,.8)';g.lineWidth=.8;g.beginPath();g.moveTo(17,-6);g.lineTo(17,5);g.stroke();
+ // landing skids
+ g.strokeStyle='#b8cbd8';g.lineWidth=2;g.beginPath();g.moveTo(-13,-10);g.lineTo(-10,-15);g.lineTo(12,-15);g.lineTo(16,-9);g.moveTo(-13,10);g.lineTo(-10,15);g.lineTo(12,15);g.lineTo(16,9);g.stroke();
+ // searchlight pod
+ g.fillStyle='#101b29';g.strokeStyle='#b8d8e9';g.lineWidth=1.2;g.beginPath();g.ellipse(4,12,5,3,0,0,Math.PI*2);g.fill();g.stroke();
+ g.fillStyle='#f4ffff';g.shadowColor='#aaf8ff';g.shadowBlur=10;g.beginPath();g.arc(5,13,2.2,0,Math.PI*2);g.fill();g.shadowBlur=0;
+ // animated main rotor disc and tail rotor
+ g.strokeStyle='rgba(220,245,255,.9)';g.lineWidth=1.8;g.beginPath();g.moveTo(-2,-2);g.lineTo(2,2);g.moveTo(-2,2);g.lineTo(2,-2);g.stroke();
+ g.save();g.rotate(time*19);g.strokeStyle='rgba(220,245,255,.72)';g.lineWidth=2.2;g.beginPath();g.moveTo(-38,0);g.lineTo(38,0);g.moveTo(0,-5);g.lineTo(0,5);g.stroke();g.restore();
+ g.save();g.translate(-49,0);g.rotate(-time*25);g.strokeStyle='#e8f8ff';g.lineWidth=1.8;g.beginPath();g.moveTo(-6,0);g.lineTo(6,0);g.moveTo(0,-5);g.lineTo(0,5);g.stroke();g.restore();
+ // alternating anti-collision lights
+ g.fillStyle=Math.sin(time*13)>0?'#ff334f':'#7df9ff';g.shadowColor=g.fillStyle;g.shadowBlur=9;g.beginPath();g.arc(0,-11,2.7,0,Math.PI*2);g.fill();
+ g.fillStyle=Math.sin(time*9)>0?'#7df9ff':'#ff334f';g.beginPath();g.arc(-22,2,2,0,Math.PI*2);g.fill();g.shadowBlur=0;
  g.restore();
 }
 const lt=(i,j,ns)=>{const t=mod(time+((i*7+j*13)&7)*1.5,12);return ns?(t<5?'g':t<6?'y':'r'):(t>=11?'y':t>=6?'g':'r')};
@@ -371,14 +483,14 @@ function gameOver(){over=true;gopen=true;bOpen=false;bsEl.innerHTML=`<div class=
 function restartGame(){if(!over)return;over=false;bOpen=false;bsEl.style.display='none';p.cash=500;p.fine=0;p.x=160;p.y=18;p.a=0;p.v=0;p.fr=0;p.clean=0;p.boost=0;p.don=1;cops.forEach((c,i)=>{cops[i]=newCop()});traf.length=0;roadblocks=[];policeHeliUntil=0;gopen=false}
 function bustedClose(){if(!bOpen)return;bOpen=false;bsEl.style.display='none';window.__noAd=Math.random()>=1/3;gopen=false}
 addEventListener('keydown',e=>{if(bOpen&&(e.key=='Enter'||e.key==' '))bustedClose();if(over&&e.key=='Enter')restartGame()});
-toast('WASD drive · Space brake · E eat donut (+10 mph for 2 min) · B bribe (donut) · V bribe (cash $150) · G rob pedestrians · hide in P garages · M map · R rain · F or tap a building to enter · C cinematic mode · K music',7);
+toast('WASD drive · Space brake · choose SUPERBIKE in garage for extreme speed · E eat donut (+10 mph for 2 min) · B bribe (donut) · V bribe (cash $150) · G rob pedestrians · hide in P garages · M map · R rain · F or tap a building to enter · C cinematic mode · K music',7);
 let last=performance.now();
 function loop(n){const dt=Math.min(.05,(n-last)/1000);last=n;time+=dt;if(!gopen)update(dt);weather(dt);draw();requestAnimationFrame(loop)}
 function update(dt){
  const L=keys.a||keys.arrowleft||T.l,Rr=keys.d||keys.arrowright||T.r,U=keys.w||keys.arrowup||T.u,D=keys.s||keys.arrowdown||T.d;
  if(p.fr>0){p.fr-=dt;p.v=0}else{
   let acc=U?480+(p.boost>0?72:0):0;if(D)acc=p.v>20?-900:-260;
-  p.v+=acc*dt-p.v*[1.2,1.3,2.0][surf(p.x,p.y)]*dt;if(keys[' '])p.v*=1-2.5*dt;p.v=clamp(p.v,-150,580);
+  p.v+=acc*dt-p.v*[1.2,1.3,2.0][surf(p.x,p.y)]*dt;if(CFG.style==='motorcycle')p.v+=U?760*dt:0;if(keys[' '])p.v*=1-2.5*dt;p.v=clamp(p.v,-220,CFG.style==='motorcycle'?1800:580);
   p.a+=((Rr?1:0)-(L?1:0))*3.2*dt*clamp(p.v/60,-1,1)/(1+Math.abs(p.v)/700);
   if(mv(p,dt))p.v*=Math.pow(.5,dt);
  }
@@ -407,12 +519,26 @@ function update(dt){
  hud.innerHTML=`<b class="sp" style="color:${mph>LIM+5?'#ff4466':'#7df9ff'}">${mph|0}</b> mph <span class="sign">LIMIT ${LIM}</span><br>${areaAt(Math.floor(p.x/B),Math.floor(p.y/B)).toUpperCase()}<br><span style="color:${p.cash<150?'#ff4466':'#9dffb0'}">CASH $${p.cash|0}</span><br>FINES PAID $${p.fine}<br>CLEAN ${p.clean|0}s<br>🍩 ${p.don}${p.boost>0?' · BOOST '+Math.ceil(p.boost)+'s':''}`+(ch?'<br><b style="color:#ff4466">🚨 COP ON YOU</b>':'');
 }
 const NEON=['#00f0ff','#ff2bd6','#b6ff3b','#ffa31a','#7a5cff'];
-const STY={sedan:{L:36,W:18,cx:-1,cl:17,tp:.85,r:5},coupe:{L:36,W:18,cx:-4,cl:12,tp:.8,r:6},sports:{L:38,W:19,cx:-3,cl:12,tp:.7,r:7},super:{L:42,W:20,cx:-6,cl:11,tp:.55,r:8},muscle:{L:40,W:19,cx:-4,cl:15,tp:.9,r:4,scoop:1},hatch:{L:32,W:17,cx:-3,cl:19,tp:.9,r:5},mini:{L:26,W:15,cx:-1,cl:14,tp:.9,r:6},suv:{L:40,W:20,cx:-3,cl:25,tp:.92,r:4},truck:{L:44,W:21,cx:8,cl:13,tp:.95,r:3,bed:.38},van:{L:44,W:20,cx:0,cl:34,tp:.95,r:4},limo:{L:62,W:18,cx:6,cl:16,tp:.9,r:5},bus:{L:72,W:22,cx:0,cl:62,tp:.97,r:4,sw:1},hotrod:{L:34,W:16,cx:-8,cl:8,tp:.6,r:4,open:1},rally:{L:36,W:18,cx:-2,cl:15,tp:.85,r:5,scoop:1},ev:{L:38,W:18,cx:-4,cl:19,tp:.75,r:8}};
+const STY={motorcycle:{L:30,W:12,cx:-2,cl:7,tp:.5,r:4},sedan:{L:36,W:18,cx:-1,cl:17,tp:.85,r:5},coupe:{L:36,W:18,cx:-4,cl:12,tp:.8,r:6},sports:{L:38,W:19,cx:-3,cl:12,tp:.7,r:7},super:{L:42,W:20,cx:-6,cl:11,tp:.55,r:8},muscle:{L:40,W:19,cx:-4,cl:15,tp:.9,r:4,scoop:1},hatch:{L:32,W:17,cx:-3,cl:19,tp:.9,r:5},mini:{L:26,W:15,cx:-1,cl:14,tp:.9,r:6},suv:{L:40,W:20,cx:-3,cl:25,tp:.92,r:4},truck:{L:44,W:21,cx:8,cl:13,tp:.95,r:3,bed:.38},van:{L:44,W:20,cx:0,cl:34,tp:.95,r:4},limo:{L:62,W:18,cx:6,cl:16,tp:.9,r:5},bus:{L:72,W:22,cx:0,cl:62,tp:.97,r:4,sw:1},hotrod:{L:34,W:16,cx:-8,cl:8,tp:.6,r:4,open:1},rally:{L:36,W:18,cx:-2,cl:15,tp:.85,r:5,scoop:1},ev:{L:38,W:18,cx:-4,cl:19,tp:.75,r:8}};
 const rgba=(h,a)=>{const n=parseInt(h.slice(1),16);return `rgba(${n>>16},${n>>8&255},${n&255},${a})`};
 const DEF={style:'sedan',paint:'#ff2e4d',finish:'gloss',roof:'#d92848',roofx:'none',pattern:'none',stripeCol:'#ffffff',win:'#0c1424',wheels:'normal',hl:'#fff3b0',tl:'#ff3040',spoiler:'none',ug:'solid',under:'#00ffe6',trail:'none'};
 const COPF=Object.assign({},DEF,{paint:'#161a24',roof:'#161a24',ug:'off'});
 const rnd=a=>a[(Math.random()*a.length)|0],rhex=()=>'#'+((Math.random()*0xffffff)|0).toString(16).padStart(6,'0');
 function drawCar(c,f,o){const s=STY[f.style]||STY.sedan,L=s.L,Wd=s.W,hl=L/2,hw=Wd/2,tw=hw*s.tp,r=s.r,rr=Math.min(r,tw*.8);
+ if(f.style==='motorcycle'){
+  c.save();
+  if(o.glow){c.shadowColor=o.glow;c.shadowBlur=14;c.fillStyle=o.glow;c.beginPath();c.ellipse(0,0,15,7,0,0,Math.PI*2);c.fill();c.shadowBlur=0}
+  // Two chunky tires, metallic rims and visible front fork
+  for(const x of[-10,10]){c.fillStyle='#080b10';c.beginPath();c.ellipse(x,0,5.2,3.2,0,0,Math.PI*2);c.fill();c.strokeStyle='#9baab8';c.lineWidth=1.3;c.beginPath();c.ellipse(x,0,3.2,1.8,0,0,Math.PI*2);c.stroke();c.strokeStyle='#d7e4ee';c.lineWidth=.7;c.beginPath();c.moveTo(x-2,0);c.lineTo(x+2,0);c.stroke()}
+  c.strokeStyle='#b9c8d8';c.lineWidth=2;c.beginPath();c.moveTo(3,0);c.lineTo(10,0);c.stroke();
+  c.fillStyle=f.paint;c.shadowColor=f.paint;c.shadowBlur=f.finish==='neon'?12:3;c.beginPath();c.moveTo(-9,-2.6);c.lineTo(-3,-4);c.lineTo(5,-3.4);c.lineTo(9,-1.3);c.lineTo(6,1.7);c.lineTo(-4,2.6);c.lineTo(-9,1);c.closePath();c.fill();c.shadowBlur=0;
+  c.fillStyle='#202b39';c.beginPath();c.ellipse(-1,0,4.2,2.1,0,0,Math.PI*2);c.fill();
+  c.fillStyle=f.roof||'#e7edf5';c.beginPath();c.ellipse(-3,0,2.8,1.6,0,0,Math.PI*2);c.fill();
+  c.strokeStyle='#e6f4ff';c.lineWidth=1.2;c.beginPath();c.moveTo(6,-2);c.lineTo(11,-3);c.moveTo(6,2);c.lineTo(11,3);c.stroke();
+  c.fillStyle=f.hl||'#fff3b0';c.shadowColor=c.fillStyle;c.shadowBlur=9;c.beginPath();c.arc(11,0,1.5,0,Math.PI*2);c.fill();c.shadowBlur=0;
+  c.fillStyle=f.tl||'#ff3040';c.beginPath();c.arc(-10,0,1.2,0,Math.PI*2);c.fill();
+  c.restore();return;
+ }
  c.globalCompositeOperation='lighter';
  if(o.hl){const gr=c.createLinearGradient(hl-2,0,hl+112,0);gr.addColorStop(0,rgba(f.hl,.4));gr.addColorStop(1,rgba(f.hl,0));c.fillStyle=gr;c.beginPath();c.moveTo(hl-2,-6);c.lineTo(hl+112,-40);c.lineTo(hl+112,40);c.lineTo(hl-2,6);c.fill()}
  if(o.glow){const gr=c.createRadialGradient(0,0,4,0,0,o.gr);gr.addColorStop(0,o.glow);gr.addColorStop(1,'rgba(0,0,0,0)');c.fillStyle=gr;c.fillRect(-o.gr,-o.gr,o.gr*2,o.gr*2)}
@@ -523,7 +649,7 @@ function mmToggle(){mapMode=(mapMode+1)%3;mapZoom=1;mbig=mapMode!==0;mm.classLis
 mm.addEventListener('pointerdown',e=>{e.preventDefault();mmToggle()});
 mm.addEventListener('wheel',e=>{if(mapMode===0)return;e.preventDefault();const old=mapZoom;mapZoom=clamp(mapZoom*(e.deltaY<0?1.14:1/1.14),.28,4);if(mapZoom!==old)drawMap()},{passive:false});
 let near=null,bopen=false;const ENT=new Map(),bl=document.getElementById('bld');
-const ROB={bank:[1800,5200],houses:[80,250],apts:[100,300],church:[60,160],hospital:[200,500],school:[100,250],mall:[300,900],stadium:[400,1000],skyscraper:[300,800],tower:[200,600],round:[200,500],warehouse:[150,450],farm:[70,200]};
+const ROB={bank:[6000,15000],houses:[80,250],apts:[100,300],church:[60,160],hospital:[200,500],school:[100,250],mall:[300,900],stadium:[400,1000],skyscraper:[300,800],tower:[200,600],round:[200,500],warehouse:[150,450],farm:[70,200]};
 const BI={bank:['🏦','Bank','A local bank with a secure vault downstairs and an alarm that is definitely not silent.','Check the lobby (nothing useful)','don'],houses:['🏠','House','Warm lights and a pancake smell.','Raid the fridge (+1 donut)','don'],apts:['🏢','Apartment Lobby','A quiet hallway, perfect for lying low.','Lay low (cops lose you)','lay'],church:['⛪','Chapel','Candles flicker. The priest forgives a lot.','Ask for charity (+$500)','fine'],hospital:['🏥','Hospital','Fluorescent lights and vending machines.','Energy shot (1 min boost)','boost'],school:['🏫','High School','A bake sale is running in the gym.','Buy 2 donuts ($150)','credit'],mall:['🛍️','Neon Mall','Escalators, a food court, a donut kiosk.','Free sample (+1 donut)','don'],stadium:['🏟️','Stadium','The crowd roars. Hot dogs everywhere.','Hot dog (1 min boost)','boost'],skyscraper:['🏙️','Skyscraper Lobby','Marble floors and an elevator to the roof.','Ride to the roof (cops lose you)','lay'],tower:['🏬','Office Building','Cubicles and a lonely vending machine.','Vending machine (+1 donut)','don'],round:['🔮','The Dome','A strange hum and glowing floors.','Touch the orb (1 min boost)','boost'],warehouse:['📦','Warehouse','Stacks of crates in the dark.','Search the crates (+1 donut)','don']};
 BI.farm=['🚜','Farmhouse','Hay bales, a rusty tractor and a barking dog.','Raid the pantry (+1 donut)','don'];
 BI.twin=BI.quad=BI.L=BI.tower;
@@ -752,3 +878,5 @@ function draw(){
 }
 requestAnimationFrame(loop);
 </script></body></html>
+
+
