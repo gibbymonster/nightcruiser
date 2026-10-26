@@ -90,10 +90,42 @@ canvas#c{filter:saturate(1.1) contrast(1.04)}
 .tb:active,#garage button:active{transform:scale(.96)}
 @media(max-width:600px){#hud{left:9px;top:calc(env(safe-area-inset-top,0px) + 10px);min-width:115px;padding:8px 10px;font-size:9px}#hud b.sp{font-size:27px}#mm{width:126px;height:126px;top:calc(env(safe-area-inset-top,0px) + 48px);right:8px}#mm.big{width:88vmin;height:88vmin}#gbtn{font-size:10px;padding:8px 10px}#district{right:10px;bottom:12px;padding:8px 11px 9px 14px;max-width:75vw}}
 @media(prefers-reduced-motion:reduce){*,*:before,*:after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}}
+
+/* FINAL RELEASE · archive, title and small-screen polish */
+#ttl .version-pill{display:inline-flex;align-items:center;gap:10px;margin-top:24px;padding:7px 12px;border:1px solid rgba(120,247,255,.32);border-radius:999px;background:rgba(8,20,35,.66);font:800 9px/1 Orbitron,sans-serif;letter-spacing:.2em;color:#bdfaff}
+#ttl .version-pill span{color:#ffd6a0;border-left:1px solid rgba(255,255,255,.22);padding-left:10px}
+#ttl .release-note{margin-top:17px;color:rgba(226,248,255,.72);font:600 9px/1.6 Orbitron,sans-serif;letter-spacing:.18em}
+#secretsBtn{position:absolute;z-index:4;top:calc(env(safe-area-inset-top,0px) + 10px);right:126px;display:flex;align-items:center;gap:8px;padding:10px 12px;color:#fff;background:linear-gradient(135deg,rgba(11,34,48,.94),rgba(23,18,43,.92));border:1px solid rgba(120,247,255,.46);border-radius:13px;box-shadow:0 8px 24px rgba(0,0,0,.25),inset 0 1px rgba(255,255,255,.08);font:800 10px Orbitron,sans-serif;letter-spacing:.08em;cursor:pointer;backdrop-filter:blur(12px);transition:transform .18s,border-color .18s}
+#secretsBtn span{padding:3px 5px;border-radius:6px;background:rgba(120,247,255,.13);color:#aaf7ff;font-size:9px;font-variant-numeric:tabular-nums}
+#secretsBtn:hover{transform:translateY(-2px);border-color:#ffd6a0}
+#secretPanel{display:none;position:absolute;z-index:9;top:calc(env(safe-area-inset-top,0px) + 62px);right:10px;width:min(420px,calc(100vw - 20px));max-height:min(78vh,760px);overflow:hidden;padding:18px;background:linear-gradient(150deg,rgba(11,29,45,.98),rgba(8,12,28,.985));border:1px solid rgba(120,247,255,.42);border-radius:18px;box-shadow:0 25px 85px rgba(0,0,0,.62),inset 0 1px rgba(255,255,255,.08);backdrop-filter:blur(22px);color:#ecfaff}
+.secret-head{display:flex;gap:10px;align-items:flex-start;justify-content:space-between}
+.secret-eyebrow{font:700 8px Orbitron,sans-serif;letter-spacing:.23em;color:#76e9f6;opacity:.85}
+.secret-head h2{font:800 18px Orbitron,sans-serif;letter-spacing:.07em;margin:8px 0;color:#f2fcff}
+.secret-head p{font:500 10px/1.65 system-ui,sans-serif;color:#a9c2d0;margin:0 0 12px;max-width:305px}
+#secretClose{flex:0 0 auto;width:32px;height:32px;border-radius:9px;color:#e7fbff;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.14);cursor:pointer}
+.secret-progress{height:5px;border-radius:99px;background:rgba(255,255,255,.09);overflow:hidden}
+#secretProgress{height:100%;width:0;background:linear-gradient(90deg,#5af1ff,#ff63d8);border-radius:99px;transition:width .25s ease}
+.secret-progress-label{display:flex;justify-content:space-between;margin:9px 0 11px;font:700 8px Orbitron,sans-serif;letter-spacing:.16em;color:#8caab9}
+.secret-progress-label strong{color:#ffd6a0;font-variant-numeric:tabular-nums}
+#secretList{display:grid;gap:6px;overflow:auto;max-height:calc(min(78vh,760px) - 190px);padding-right:3px;scrollbar-width:thin;scrollbar-color:rgba(120,247,255,.4) transparent}
+.secret-row{display:flex;align-items:center;gap:10px;min-height:51px;padding:8px 10px;border:1px solid rgba(160,210,230,.1);border-radius:11px;background:rgba(255,255,255,.025)}
+.secret-row.found{background:linear-gradient(100deg,rgba(120,247,255,.08),rgba(255,99,216,.045));border-color:rgba(120,247,255,.22)}
+.secret-mark{flex:0 0 30px;width:30px;height:30px;display:grid;place-items:center;border-radius:9px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.09);font:900 12px Orbitron,sans-serif;color:#8298a5}
+.secret-row.found .secret-mark{color:#b7fbff;background:rgba(120,247,255,.13);border-color:rgba(120,247,255,.25);text-shadow:0 0 10px rgba(120,247,255,.4)}
+.secret-copy{min-width:0;display:flex;flex-direction:column;gap:4px}
+.secret-copy b{font:700 9px/1.4 Orbitron,sans-serif;letter-spacing:.045em;color:#e8faff}
+.secret-copy small{font:500 10px/1.4 system-ui,sans-serif;color:#93aab8}
+.secret-row.found .secret-copy small{color:#b7d4df}
+#secretPanel footer{margin-top:11px;padding-top:10px;border-top:1px solid rgba(255,255,255,.08);font:500 9px system-ui,sans-serif;color:#8caab9}
+#secretPanel footer b{color:#a9f8ff;font:800 10px Orbitron,sans-serif}
+@media(max-width:600px){#secretsBtn{right:124px;padding:8px 9px;gap:5px;font-size:9px;top:calc(env(safe-area-inset-top,0px) + 10px)}#secretsBtn span{font-size:8px}#secretPanel{top:calc(env(safe-area-inset-top,0px) + 54px);right:4vw;width:92vw;max-height:80vh;padding:14px}#secretList{max-height:calc(80vh - 178px)}#ttl .release-note{max-width:80vw;font-size:8px;letter-spacing:.12em}}
+
 </style></head><body>
-<canvas id="c"></canvas><canvas id="mm"></canvas><div id="bld"></div><div id="hud"></div><div id="district"><div class="dname"></div><div class="dsub"></div></div><div id="toast"></div><div id="bst"></div><div id="ttl"><div class="lg">NIGHT<br>CRUISER</div><div class="sb">FROM DOWNTOWN TO THE DESERT</div><div class="pr">PRESS ANY KEY OR TAP TO START</div></div><div class="bar" style="top:0"></div><div class="bar" style="bottom:0"></div><div id="grn"></div><div id="grd"></div><div id="cap"></div>
-<button id="gbtn">🎨 GARAGE</button>
+<canvas id="c"></canvas><canvas id="mm"></canvas><div id="bld"></div><div id="hud"></div><div id="district"><div class="dname"></div><div class="dsub"></div></div><div id="toast"></div><div id="bst"></div><div id="ttl"><div class="lg">NIGHT<br>CRUISER</div><div class="version-pill">FINAL RELEASE <span>V1.0.0</span></div><div class="sb">FROM DOWNTOWN TO THE DESERT</div><div class="release-note">EXPLORE · RACE · FIND ALL 20 SECRETS</div><div class="pr">PRESS ANY KEY · TAP TO START</div></div><div class="bar" style="top:0"></div><div class="bar" style="bottom:0"></div><div id="grn"></div><div id="grd"></div><div id="cap"></div>
+<button id="secretsBtn" aria-label="Open secret archive">✦ SECRETS <span id="secretCount">0/20</span></button><button id="gbtn">🎨 GARAGE</button>
 <div id="garage"><h3>GARAGE</h3><canvas id="prev" width="240" height="200"></canvas><label>Preset<select id="gpre"></select></label><div id="gfields"></div><button id="grand">🎲 RANDOM</button><button id="greset">RESET</button><button id="gclose">CLOSE</button></div>
+<section id="secretPanel" role="dialog" aria-label="Secret archive" aria-modal="false"><header class="secret-head"><div><div class="secret-eyebrow">NIGHT CRUISER // FIELD NOTES</div><h2>SECRET ARCHIVE</h2><p>Glowing marks hide on the island. Get close to unlock a discovery.</p></div><button id="secretClose" aria-label="Close secret archive">✕</button></header><div class="secret-progress"><div id="secretProgress"></div></div><div class="secret-progress-label"><span>DISCOVERIES</span><strong id="secretProgressText">0 / 20</strong></div><div id="secretList"></div><footer>Press <b>J</b> to close · Discoveries save automatically</footer></section>
 <div class="tb" data-k="l" style="left:14px">◀</div><div class="tb" data-k="r" style="left:92px">▶</div>
 <div class="tb" data-k="d" style="right:92px">🛑</div><div class="tb" data-k="u" style="right:14px">⛽</div>
 <div class="tb" id="tbE" style="right:14px;bottom:calc(env(safe-area-inset-bottom,0px) + 96px)">🍩</div><div class="tb" id="tbB" style="right:92px;bottom:calc(env(safe-area-inset-bottom,0px) + 96px)">🤝</div><div class="tb" id="tbV" style="right:92px;bottom:calc(env(safe-area-inset-bottom,0px) + 174px)">💵</div><div class="tb" id="tbG" style="right:14px;bottom:calc(env(safe-area-inset-bottom,0px) + 174px)">🧤</div>
@@ -145,6 +177,34 @@ const SPECIAL_PLACES={
  '-6,4':{name:'Leif’s Garage',type:'garage',district:'Leif’s Crossing'},
  '2,-5':{name:'Liberty State Diner',type:'houses',district:'Delaware Avenue'}
 };
+
+// 20 hand-placed discoveries: recognizable open-world homages plus original Gibby secrets.
+const SECRET_EGGS = [
+ {id:'vinewood',i:1,j:-2,kind:'gta',symbol:'V',name:'Vinewood Vista',hint:'A famous sign watches over the bright side of town.',detail:'A love letter to the oversized hilltop signs of open-world crime games.',color:'#78f7ff'},
+ {id:'chiliad',i:-4,j:8,kind:'gta',symbol:'?',name:'Mount Chiliad Mystery',hint:'Head for the quiet hills and look for a strange alignment.',detail:'Some mysteries are better left on a map covered in red string.',color:'#78f7ff'},
+ {id:'bigfoot',i:8,j:9,kind:'gta',symbol:'★',name:'Bigfoot Footprints',hint:'Follow the dusty trail where the city thins out.',detail:'Those footprints are much too large to belong to a jogger.',color:'#78f7ff'},
+ {id:'ufo',i:-9,j:-9,kind:'gta',symbol:'U',name:'UFO After Hours',hint:'A desert road. A strange hum. Look up after dark.',detail:'The truth is out there — and apparently it likes neon.',color:'#78f7ff'},
+ {id:'hao',i:-6,j:4,kind:'gta',symbol:'H',name:'Hao’s Tuning Slip',hint:'A garage regular left a note about a midnight build.',detail:'A wink to the tuner scene and impossibly fast street machines.',color:'#78f7ff'},
+ {id:'cluckin',i:2,j:2,kind:'gta',symbol:'C',name:'Cluckin’ Bell Wrapper',hint:'The fastest food in town comes in a suspiciously familiar wrapper.',detail:'Grease, neon and a late-night drive-thru. A classic city combo.',color:'#78f7ff'},
+ {id:'greenride',i:3,j:3,kind:'gta',symbol:'B',name:'The Green Ride',hint:'Look near a calm neighborhood for a green two-wheel legend.',detail:'A little nod to the bike rides and loyal canine sidekicks of open-world adventures.',color:'#78f7ff'},
+ {id:'epsilon',i:-5,j:1,kind:'gta',symbol:'E',name:'Epsilon-ish Pamphlet',hint:'A blue pamphlet asks you to question absolutely everything.',detail:'A satirical cult-culture reference. Please do not send them money.',color:'#78f7ff'},
+ {id:'maze',i:2,j:-5,kind:'gta',symbol:'$',name:'Maze of Money',hint:'A downtown corner has a tip for those who watch the skyline.',detail:'The higher the tower, the stranger the stock advice.',color:'#78f7ff'},
+ {id:'payphone',i:-3,j:-5,kind:'gta',symbol:'☎',name:'The Last Payphone',hint:'Someone still expects a call on a forgotten street corner.',detail:'A nod to old-school mission-givers and mysterious ringing phones.',color:'#78f7ff'},
+ {id:'sonar',i:-13,j:-8,kind:'gta',symbol:'~',name:'Deep Blue Sonar',hint:'Listen for a lonely ping along the cold coastal roads.',detail:'Something submarine-shaped is keeping a very low profile.',color:'#78f7ff'},
+ {id:'ghostride',i:-14,j:-10,kind:'gta',symbol:'G',name:'Paleco Ghost Ride',hint:'A coastal road is said to host a driverless midnight cruiser.',detail:'If the headlights are on but nobody is driving, maybe do not follow it.',color:'#78f7ff'},
+ {id:'goldendonut',i:3,j:4,kind:'gibby',symbol:'G',name:'Gibby’s Golden Donut',hint:'A legendary snack was hidden near a very familiar family address.',detail:'The rarest pastry on the island. Almost too shiny to eat.',color:'#ffd6a0'},
+ {id:'recipe',i:0,j:5,kind:'gibby',symbol:'R',name:'Major Family Recipe',hint:'A corner store knows the family recipe nobody writes down.',detail:'One pinch of chaos, two scoops of confidence, and absolutely no measuring cups.',color:'#ffd6a0'},
+ {id:'radio',i:9,j:7,kind:'gibby',symbol:'♪',name:'Gibby Radio 91.7',hint:'Tune in where an ordinary radio tower seems to hum your name.',detail:'Broadcasting late-night beats, questionable advice and 100% Gibby energy.',color:'#ffd6a0'},
+ {id:'plate717',i:13,j:2,kind:'gibby',symbol:'7',name:'Lucky Plate 717',hint:'Look for a license plate with a very specific number sequence.',detail:'717: the official number of the Gibby luck streak. Allegedly.',color:'#ffd6a0'},
+ {id:'prototype',i:-6,j:3,kind:'gibby',symbol:'⚡',name:'Gibby Superbike Prototype',hint:'Someone tested a machine far too fast for sensible traffic laws.',detail:'Prototype note: “Top speed: yes.” Engineering approval: “probably fine.”',color:'#ffd6a0'},
+ {id:'caveart',i:-11,j:11,kind:'gibby',symbol:'G',name:'Gibby’s Cave Doodle',hint:'The rocky outskirts hide a very recognizable doodle.',detail:'A priceless piece of cave art. The artist signed it with a stick figure and a donut.',color:'#ffd6a0'},
+ {id:'arcade',i:-2,j:2,kind:'gibby',symbol:'✦',name:'Gibby Arcade Token',hint:'A retro video shop is hiding one last token from the high-score era.',detail:'Redeemable for one imaginary continue and an unreasonable amount of nostalgia.',color:'#ffd6a0'},
+ {id:'moneyjar',i:5,j:2,kind:'gibby',symbol:'$',name:'The Major Money Jar',hint:'A family business has kept a tiny emergency fund off the books.',detail:'Not a bank robbery. Just a very well-hidden Gibby rainy-day jar.',color:'#ffd6a0'}
+].map(e=>({...e,x:e.i*B+(e.dx??160),y:e.j*B+(e.dy??22)}));
+const EGG_STORE='night-cruiser-final-release-eggs-v1';
+let eggFound=new Set();
+try{const saved=JSON.parse(localStorage.getItem(EGG_STORE)||'[]');if(Array.isArray(saved))eggFound=new Set(saved.filter(id=>SECRET_EGGS.some(e=>e.id===id)))}catch(e){}
+
 function neighborhoodAt(i,j){
  if(i<=-13&&j<=-9)return 'Paleco Bay';
  if(i>=-1&&i<=3&&j>=-4&&j<=0)return 'Vinewood Heights';
@@ -394,10 +454,11 @@ function gameOver(){over=true;gopen=true;bOpen=false;bsEl.innerHTML=`<div class=
 function restartGame(){if(!over)return;over=false;bOpen=false;bsEl.style.display='none';p.cash=500;p.fine=0;p.x=160;p.y=18;p.a=0;p.v=0;p.fr=0;p.clean=0;p.boost=0;p.don=1;cops.forEach((c,i)=>{cops[i]=newCop()});traf.length=0;roadblocks=[];policeHeliUntil=0;gopen=false}
 function bustedClose(){if(!bOpen)return;bOpen=false;bsEl.style.display='none';window.__noAd=Math.random()>=1/3;gopen=false}
 addEventListener('keydown',e=>{if(bOpen&&(e.key=='Enter'||e.key==' '))bustedClose();if(over&&e.key=='Enter')restartGame()});
-toast('WASD drive · Space brake · choose SUPERBIKE in garage for extreme speed · E eat donut (+10 mph for 2 min) · B bribe (donut) · V bribe (cash $150) · G rob pedestrians · hide in P garages · M map · R rain · F or tap a building to enter · C cinematic mode · K music',7);
+toast('WASD drive · Space brake · Garage: SUPERBIKE · E donut boost · B / V bribes · G grab wallets · P garages · M map · R rain · F enter buildings · C cinematic · J secret archive · K music',8);
 let last=performance.now();
 function loop(n){const dt=Math.min(.05,(n-last)/1000);last=n;time+=dt;if(!gopen)update(dt);weather(dt);draw();requestAnimationFrame(loop)}
 function update(dt){
+ const beforeX=p.x,beforeY=p.y;
  const L=keys.a||keys.arrowleft||T.l,Rr=keys.d||keys.arrowright||T.r,U=keys.w||keys.arrowup||T.u,D=keys.s||keys.arrowdown||T.d;
  if(p.fr>0){p.fr-=dt;p.v=0}else{
   let acc=U?480+(p.boost>0?72:0):0;if(D)acc=p.v>20?-900:-260;
@@ -405,6 +466,7 @@ function update(dt){
   p.a+=((Rr?1:0)-(L?1:0))*3.2*dt*clamp(p.v/60,-1,1)/(1+Math.abs(p.v)/700);
   if(mv(p,dt))p.v*=Math.pow(.5,dt);
  }
+ checkSecretFinds(beforeX,beforeY,p.x,p.y);
  const mph=Math.abs(p.v)/6;p.clean+=dt;p.cd-=dt;p.boost=Math.max(0,p.boost-dt);
  const zoneNow=areaAt(Math.floor(p.x/B),Math.floor(p.y/B));updateDistrict();
  const trafficTarget=zoneNow==='downtown'?26:zoneNow==='suburbs'?13:zoneNow==='farmland'?3:zoneNow==='rural'?5:1;
@@ -427,7 +489,7 @@ function update(dt){
  traf.forEach((c,i)=>{drive(c,dt);const d=Math.hypot(c.x-p.x,c.y-p.y);if(d<30){p.v*=.9;c.v*=.5}if(d>1300)traf[i]=newTraf(600)});
  const ch=cops.some(c=>c.chase);
  if(inGar(p.x,p.y)){p.hide=(p.hide||0)+dt;if(p.hide>2.5&&ch){cops.forEach((c,i)=>{if(c.chase)cops[i]=newCop()});toast('Lost the cop — hidden!')}}else p.hide=0;
- hud.innerHTML=`<b class="sp" style="color:${mph>LIM+5?'#ff4466':'#7df9ff'}">${mph|0}</b> mph <span class="sign">LIMIT ${LIM}</span><br>${areaAt(Math.floor(p.x/B),Math.floor(p.y/B)).toUpperCase()}<br><span style="color:${p.cash<150?'#ff4466':'#9dffb0'}">CASH $${p.cash|0}</span><br>FINES PAID $${p.fine}<br>CLEAN ${p.clean|0}s<br>🍩 ${p.don}${p.boost>0?' · BOOST '+Math.ceil(p.boost)+'s':''}`+(ch?'<br><b style="color:#ff4466">🚨 COP ON YOU</b>':'');
+ hud.innerHTML=`<b class="sp" style="color:${mph>LIM+5?'#ff4466':'#7df9ff'}">${mph|0}</b> mph <span class="sign">LIMIT ${LIM}</span><br>${areaAt(Math.floor(p.x/B),Math.floor(p.y/B)).toUpperCase()}<br><span style="color:${p.cash<150?'#ff4466':'#9dffb0'}">CASH $${p.cash|0}</span><br>FINES PAID $${p.fine}<br>CLEAN ${p.clean|0}s<br>🍩 ${p.don}${p.boost>0?' · BOOST '+Math.ceil(p.boost)+'s':''}<br><span style="color:#ffd6a0">✦ SECRETS ${eggFound.size}/${SECRET_EGGS.length}</span>`+(ch?'<br><b style="color:#ff4466">🚨 COP ON YOU</b>':'');
 }
 const NEON=['#00f0ff','#ff2bd6','#b6ff3b','#ffa31a','#7a5cff'];
 const STY={motorcycle:{L:30,W:12,cx:-2,cl:7,tp:.5,r:4},sedan:{L:36,W:18,cx:-1,cl:17,tp:.85,r:5},coupe:{L:36,W:18,cx:-4,cl:12,tp:.8,r:6},sports:{L:38,W:19,cx:-3,cl:12,tp:.7,r:7},super:{L:42,W:20,cx:-6,cl:11,tp:.55,r:8},muscle:{L:40,W:19,cx:-4,cl:15,tp:.9,r:4,scoop:1},hatch:{L:32,W:17,cx:-3,cl:19,tp:.9,r:5},mini:{L:26,W:15,cx:-1,cl:14,tp:.9,r:6},suv:{L:40,W:20,cx:-3,cl:25,tp:.92,r:4},truck:{L:44,W:21,cx:8,cl:13,tp:.95,r:3,bed:.38},van:{L:44,W:20,cx:0,cl:34,tp:.95,r:4},limo:{L:62,W:18,cx:6,cl:16,tp:.9,r:5},bus:{L:72,W:22,cx:0,cl:62,tp:.97,r:4,sw:1},hotrod:{L:34,W:16,cx:-8,cl:8,tp:.6,r:4,open:1},rally:{L:36,W:18,cx:-2,cl:15,tp:.85,r:5,scoop:1},ev:{L:38,W:18,cx:-4,cl:19,tp:.75,r:8}};
@@ -509,7 +571,36 @@ function drive(c,dt){
 const DN=new Map();
 const donutAt=(i,j)=>{const h=hsh(i,j);if((h>>>11)%3)return null;const k=i+','+j;if(DN.get(k)>time)return null;const t=B*(.25+((h>>>5)&7)/16);return(h&1)?{k,x:i*B+t,y:j*B}:{k,x:i*B,y:j*B+t}};
 function drawDonut(x,y){g.save();g.translate(x,y);g.rotate(time*.8);g.shadowColor='#ff5fb0';g.shadowBlur=14;g.fillStyle='#d99a4e';g.beginPath();g.arc(0,0,10,0,7);g.fill();g.shadowBlur=0;g.fillStyle='#ff7ab8';g.beginPath();g.arc(0,0,8.5,0,7);g.fill();g.fillStyle='#14141f';g.beginPath();g.arc(0,0,3.3,0,7);g.fill();for(let k=0;k<7;k++){const a=k*.9;g.fillStyle=['#fff','#7df9ff','#ffe066','#b6ff3b'][k%4];g.fillRect(Math.cos(a)*6-1.2,Math.sin(a)*6-.5,2.4,1)}g.restore()}
-function eat(){if(gopen)return;if(p.don<1)return toast('No donuts');p.don--;p.boost=220;toast('Donut boost: +100 mph for 2:00')}
+function drawSecretMarkers(){
+ for(const e of SECRET_EGGS){
+  if(eggFound.has(e.id))continue;
+  const d=Math.hypot(e.x-p.x,e.y-p.y);if(d>780)continue;
+  const pulse=.5+.5*Math.sin(time*3.2+(e.i-e.j)*.7),r=13+pulse*3;
+  g.save();g.translate(e.x,e.y);g.globalAlpha=Math.min(1,(780-d)/260+.2);
+  g.shadowColor=e.color;g.shadowBlur=18+pulse*8;g.strokeStyle=e.color;g.lineWidth=2;
+  g.beginPath();g.arc(0,0,r+4,0,Math.PI*2);g.stroke();g.shadowBlur=0;
+  g.fillStyle='rgba(5,15,28,.88)';g.beginPath();g.arc(0,0,r,0,Math.PI*2);g.fill();
+  g.strokeStyle=e.color;g.lineWidth=1.5;g.stroke();
+  g.save();g.rotate(PI/2+draw.a);g.textAlign='center';g.textBaseline='middle';g.fillStyle=e.color;g.font='900 12px Orbitron,sans-serif';g.fillText(e.symbol||'✦',0,.5);
+  if(d<180){g.font='800 8px Orbitron,sans-serif';g.fillStyle='#f3fbff';g.shadowColor='#06101a';g.shadowBlur=5;g.fillText('SECRET NEARBY',0,-28)}
+  g.restore();g.restore();
+ }
+}
+function checkSecretFinds(ax,ay,bx,by){
+ const vx=bx-ax,vy=by-ay,len2=vx*vx+vy*vy;
+ for(const e of SECRET_EGGS){
+  if(eggFound.has(e.id))continue;
+  let t=len2?((e.x-ax)*vx+(e.y-ay)*vy)/len2:0;t=clamp(t,0,1);
+  const qx=ax+vx*t,qy=ay+vy*t;if(Math.hypot(e.x-qx,e.y-qy)>54)continue;
+  eggFound.add(e.id);try{localStorage.setItem(EGG_STORE,JSON.stringify([...eggFound]))}catch(err){}
+  p.cash+=250;
+  if(eggFound.size%4===0)p.don=Math.min(9,p.don+1);
+  refreshSecretLog();
+  if(eggFound.size===SECRET_EGGS.length){p.cash+=5000;toast('🏆 GIBBY LEGEND · ALL 20 SECRETS FOUND · +$5,000',6);capEl.textContent='GIBBY LEGEND';capEl.classList.remove('on');void capEl.offsetWidth;capEl.classList.add('on')}
+  else toast(`${e.kind==='gibby'?'💗 GIBBY SECRET':'💠 OPEN-WORLD EASTER EGG'} · ${e.name.toUpperCase()} · +$250`,4);
+ }
+}
+function eat(){if(gopen)return;if(p.don<1)return toast('No donuts');p.don--;p.boost=120;toast('Donut boost: quicker acceleration for 2:00')}
 function bribe(){if(gopen)return;let bi=-1,bd=120;cops.forEach((c,i)=>{const d=Math.hypot(c.x-p.x,c.y-p.y);if(d<bd){bd=d;bi=i}});if(bi<0)return toast('No cop nearby');if(p.don<1)return toast('No donuts to bribe with');p.don--;const c=cops[bi];if(c.chase){cops[bi]=newCop();cops[bi].bribed=time+45}else c.bribed=time+45;toast('Cop bribed. Donut accepted')}
 function steal(){if(gopen)return;let bi=-1,bd=55;peds.forEach((q,i)=>{const d=Math.hypot(q.x-p.x,q.y-p.y);if(d<bd){bd=d;bi=i}});if(bi<0)return toast('No one close enough to rob');if(Math.abs(p.v)>150)return toast('Slow down to grab it');const amt=20+((Math.random()*100)|0);p.cash+=amt;peds[bi]=newPed();const seen=Math.random()<.55;if(seen)viol('mugging',0);toast('Wallet snatched: +$'+amt+(seen&&cops.some(c=>c.chase)?' · a cop saw you!':''))}
 function bribeCash(){if(gopen)return;let bi=-1,bd=120;cops.forEach((c,i)=>{const d=Math.hypot(c.x-p.x,c.y-p.y);if(d<bd){bd=d;bi=i}});if(bi<0)return toast('No cop nearby');const cost=150;if(p.cash<cost)return toast('You need $150 to bribe a cop');p.cash-=cost;const c=cops[bi];if(Math.random()<(c.chase?.5:.7)){if(c.chase){cops[bi]=newCop();cops[bi].bribed=time+60}else c.bribed=time+60;toast('Bribe accepted (-$150). He looks away')}else{c.chase=1;toast('He refused and kept your $150!')}}
@@ -530,7 +621,27 @@ function updPeds(dt){const pedZone=areaAt(Math.floor(p.x/B),Math.floor(p.y/B));
   const d=Math.hypot(q.x-p.x,q.y-p.y);
   if(d<14&&Math.abs(p.v)>90){toast('Hit a pedestrian');viol('hit a pedestrian',500);peds[i]=newPed()}else if(d>1400)peds[i]=newPed()})}
 function drawPed(q){g.save();g.translate(q.x,q.y);g.rotate(q.ang);g.fillStyle='rgba(0,0,0,.35)';g.beginPath();g.ellipse(1,2,4,7,0,0,7);g.fill();g.fillStyle=q.col;g.beginPath();g.ellipse(0,0,3.4,6.2,0,0,7);g.fill();g.fillStyle='#e8b98f';g.beginPath();g.arc(0,0,3,0,7);g.fill();g.fillStyle=q.hair;g.beginPath();g.arc(-.6,0,2.6,0,7);g.fill();g.restore()}
-let gopen=true,started=false;const CK='cc_car_v2',PRES={Taxi:{style:'sedan',paint:'#ffd21f',roof:'#ffd21f',roofx:'taxi',pattern:'checker',stripeCol:'#111111'},'Hot rod':{style:'hotrod',paint:'#c0132b',pattern:'flames',stripeCol:'#ffb000',wheels:'wide',ug:'solid',under:'#ff5500',trail:'fire'},'Neon racer':{style:'super',paint:'#14142b',roof:'#14142b',pattern:'double',stripeCol:'#00f0ff',finish:'neon',spoiler:'wing',ug:'pulse',under:'#ff2bd6',trail:'pink'},'Delivery van':{style:'van',paint:'#f3f3f3',roof:'#dddddd',pattern:'side',stripeCol:'#1b6cff',roofx:'rack'},Limo:{style:'limo',paint:'#0b0b0f',roof:'#0b0b0f',finish:'chrome',ug:'solid',under:'#b080ff'},'City bus':{style:'bus',paint:'#2e7d32',roof:'#1b5e20',pattern:'side',stripeCol:'#ffffff'},Muscle:{style:'muscle',paint:'#1a1a1a',roof:'#111111',pattern:'center',stripeCol:'#ff3b3b',finish:'matte',spoiler:'lip'},Rainbow:{style:'sports',finish:'rainbow',ug:'rainbow',trail:'rainbow',spoiler:'wing'},Mini:{style:'mini',paint:'#38d6ff',roof:'#ffffff',pattern:'dots',stripeCol:'#ffffff',trail:'cyan'}};
+let gopen=true,started=false;
+const secretPanel=document.getElementById('secretPanel'),secretList=document.getElementById('secretList'),secretCount=document.getElementById('secretCount'),secretProgress=document.getElementById('secretProgress'),secretProgressText=document.getElementById('secretProgressText');
+function refreshSecretLog(){
+ if(!secretList)return;
+ secretCount.textContent=`${eggFound.size}/${SECRET_EGGS.length}`;
+ secretProgress.style.width=`${100*eggFound.size/SECRET_EGGS.length}%`;
+ secretProgressText.textContent=`${eggFound.size} / ${SECRET_EGGS.length}`;
+ secretList.innerHTML=SECRET_EGGS.map((e,i)=>{
+  const found=eggFound.has(e.id),title=found?e.name:`UNKNOWN DISCOVERY ${String(i+1).padStart(2,'0')}`,desc=found?e.detail:e.hint;
+  return `<article class="secret-row ${found?'found':''}"><span class="secret-mark">${found?e.symbol:'?'}</span><span class="secret-copy"><b>${title}</b><small>${desc}</small></span></article>`;
+ }).join('');
+}
+function toggleSecretLog(force){
+ if(!started||bOpen||over)return;
+ const open=force===undefined?secretPanel.style.display!=='block':!!force;
+ if(open){gpanel.style.display='none';secretPanel.style.display='block';gopen=true;refreshSecretLog()}
+ else{secretPanel.style.display='none';gopen=false}
+}
+document.getElementById('secretsBtn').addEventListener('click',()=>toggleSecretLog());
+document.getElementById('secretClose').addEventListener('click',()=>toggleSecretLog(false));
+refreshSecretLog();const CK='cc_car_v2',PRES={Taxi:{style:'sedan',paint:'#ffd21f',roof:'#ffd21f',roofx:'taxi',pattern:'checker',stripeCol:'#111111'},Superbike:{style:'motorcycle',paint:'#5bf5ff',roof:'#111722',finish:'neon',pattern:'double',stripeCol:'#ff63d8',wheels:'sport',hl:'#e9ffff',tl:'#ff3040',spoiler:'none',ug:'pulse',under:'#00f0ff',trail:'cyan'},'Hot rod':{style:'hotrod',paint:'#c0132b',pattern:'flames',stripeCol:'#ffb000',wheels:'wide',ug:'solid',under:'#ff5500',trail:'fire'},'Neon racer':{style:'super',paint:'#14142b',roof:'#14142b',pattern:'double',stripeCol:'#00f0ff',finish:'neon',spoiler:'wing',ug:'pulse',under:'#ff2bd6',trail:'pink'},'Delivery van':{style:'van',paint:'#f3f3f3',roof:'#dddddd',pattern:'side',stripeCol:'#1b6cff',roofx:'rack'},Limo:{style:'limo',paint:'#0b0b0f',roof:'#0b0b0f',finish:'chrome',ug:'solid',under:'#b080ff'},'City bus':{style:'bus',paint:'#2e7d32',roof:'#1b5e20',pattern:'side',stripeCol:'#ffffff'},Muscle:{style:'muscle',paint:'#1a1a1a',roof:'#111111',pattern:'center',stripeCol:'#ff3b3b',finish:'matte',spoiler:'lip'},Rainbow:{style:'sports',finish:'rainbow',ug:'rainbow',trail:'rainbow',spoiler:'wing'},Mini:{style:'mini',paint:'#38d6ff',roof:'#ffffff',pattern:'dots',stripeCol:'#ffffff',trail:'cyan'}};
 let CFG=Object.assign({},DEF);try{Object.assign(CFG,JSON.parse(localStorage.getItem(CK)||'{}'))}catch(e){}
 const saveCfg=()=>{try{localStorage.setItem(CK,JSON.stringify(CFG))}catch(e){}};
 const gpanel=document.getElementById('garage'),pvc=document.getElementById('prev'),pg=pvc.getContext('2d');
@@ -578,14 +689,14 @@ const CS=document.createElement('canvas');CS.width=256;CS.height=128;{const x=CS
 function cone2(x,y,a,L,al){if(Math.abs(x-p.x)>800||Math.abs(y-p.y)>800)return;g.save();g.translate(x,y);g.rotate(a);g.globalCompositeOperation='lighter';g.globalAlpha=Math.min(1,al*(1+wet*.5));g.drawImage(CS,16,-L*.3,L-16,L*.6);g.restore()}
 Object.assign(NM,{farm:['Dusty Acres Farm','Miller Ranch','Redfield Homestead','Lone Pine Ranch'],tower:['Pinnacle Offices','Delta Corp','Nova Tower','Sterling Plaza'],warehouse:['Dock 9 Warehouse','Eastside Storage','Harbor Depot'],round:['The Dome']});NM.twin=NM.quad=NM.L=NM.tower;
 const SG={mall:1,apts:1,tower:1,twin:1,quad:1,L:1,warehouse:1,hospital:1,school:1,church:1},bname=o=>{const nl=NM[o.t]||[BI[o.t]?BI[o.t][1]:'Building'];return (SPECIAL_PLACES[o.gridI+','+o.gridJ]||{}).name||nl[o.h%nl.length]};
-const ttlEl=document.getElementById('ttl'),capEl=document.getElementById('cap'),CAPS=['','','','',''];let cine=false,capT=0,capI=0,AC=null,aOn=true,stp=0;
+const ttlEl=document.getElementById('ttl'),capEl=document.getElementById('cap'),CAPS=['CITY LIGHTS. ZERO PLANS.','SAND, SPEED, SECRETS.','ONE ISLAND. NO BRAKES.','THE NIGHT OWES YOU ONE.','NIGHT CRUISER // AFTER HOURS'];let cine=false,capT=0,capI=0,AC=null,aOn=true,stp=0;
 function speedLines(){const sp=Math.min(1,Math.abs(p.v)/500);if(sp<.35)return;g.save();g.strokeStyle=`rgba(255,255,255,${.2*sp})`;g.lineWidth=2;g.beginPath();for(let i=0;i<26;i++){const an=(i*2.399+time*.4)%(PI*2),r1=Math.min(W,H)*(.36+((i*7)%5)*.035),r2=r1+60+sp*130,cx=W/2,cy=H*.68;g.moveTo(cx+Math.cos(an)*r1*1.3,cy+Math.sin(an)*r1);g.lineTo(cx+Math.cos(an)*r2*1.3,cy+Math.sin(an)*r2)}g.stroke();g.restore()}
 function showCap(){capEl.textContent=CAPS[capI];capEl.classList.remove('on');void capEl.offsetWidth;capEl.classList.add('on');capI=(capI+1)%CAPS.length;capT=setTimeout(showCap,capI==0?5200:4000)}
 function cineToggle(){cine=!cine;document.body.classList.toggle('cine',cine);clearTimeout(capT);capEl.classList.remove('on');if(cine){capI=0;capT=setTimeout(showCap,1200)}}
 function startMusic(){if(AC)return;AC=new(window.AudioContext||window.webkitAudioContext)();const out=AC.createGain();out.gain.value=.16;out.connect(AC.destination);const fr=n=>55*2**(n/12),ch=[0,-4,-2,-5];setInterval(()=>{if(!aOn||AC.state!='running')return;const t=AC.currentTime+.05,root=ch[(stp>>4)&3];const o=AC.createOscillator(),g2=AC.createGain(),lp=AC.createBiquadFilter();o.type='sawtooth';o.frequency.value=fr(root+(stp%2?12:0));lp.type='lowpass';lp.frequency.value=700;g2.gain.setValueAtTime(.5,t);g2.gain.exponentialRampToValueAtTime(.001,t+.28);o.connect(lp);lp.connect(g2);g2.connect(out);o.start(t);o.stop(t+.3);if(stp%4==0){const k=AC.createOscillator(),kg=AC.createGain();k.frequency.setValueAtTime(140,t);k.frequency.exponentialRampToValueAtTime(40,t+.15);kg.gain.setValueAtTime(.9,t);kg.gain.exponentialRampToValueAtTime(.001,t+.2);k.connect(kg);kg.connect(out);k.start(t);k.stop(t+.2)}if(stp%16==0)for(const iv of[12,15,19]){const q=AC.createOscillator(),qg=AC.createGain();q.type='triangle';q.frequency.value=fr(root+iv+12);qg.gain.setValueAtTime(.0001,t);qg.gain.linearRampToValueAtTime(.12,t+.4);qg.gain.exponentialRampToValueAtTime(.001,t+2.3);q.connect(qg);qg.connect(out);q.start(t);q.stop(t+2.4)}stp++},150)}
 function startGame(){if(started)return;started=true;gopen=false;p.a=0;draw.a=0;ttlEl.style.opacity=0;ttlEl.style.pointerEvents='none';setTimeout(()=>ttlEl.remove(),1000);startMusic();if(AC.state=='suspended')AC.resume()}
 ttlEl.addEventListener('pointerdown',startGame);
-addEventListener('keydown',e=>{const k=e.key.toLowerCase();if(!started){startGame();return}if(gopen)return;if(k=='c')cineToggle();if(k=='k'){aOn=!aOn;toast(aOn?'Music on':'Music off')}});
+addEventListener('keydown',e=>{const k=e.key.toLowerCase();if(!started){startGame();return}if(k=='j'){toggleSecretLog();return}if(gopen)return;if(k=='c')cineToggle();if(k=='k'){aOn=!aOn;toast(aOn?'Music on':'Music off')}});
 function weather(dt){if(!started)p.a+=dt*.12;if(!(mf&3))near=bldAt(p.x,p.y,110);if(time>nextRain){rainOn=!rainOn;nextRain=time+(rainOn?45:60)+Math.random()*50;toast(rainOn?'Rain rolling in':'Rain clearing',3)}wet+=((rainOn?1:0)-wet)*.5*dt;if(rainOn&&Math.random()<dt*.08)flash=1;flash=Math.max(0,flash-dt*3)}
 const BLP=[['EAT DONUTS','#ff2bd6'],['CRUISE NIGHT','#00f0ff'],['COPS LOVE US','#ffa31a']],md=(a,n)=>((a%n)+n)%n;
 function drawBlimps(){BLP.forEach((b,i)=>{const dir=i%2?1:-1,ang=i%2?0:PI,bx=p.x+md(i*1337+dir*(18+i*7)*time-p.x+2200,4400)-2200,by=p.y+md(i*911-p.y+2200,4400)-2200;g.save();g.translate(bx,by);g.fillStyle='rgba(0,0,0,.28)';g.beginPath();g.ellipse(26,34,72,22,ang,0,7);g.fill();g.rotate(ang);g.fillStyle='#23233a';g.strokeStyle=b[1];g.lineWidth=2;g.beginPath();g.ellipse(0,0,72,24,0,0,7);g.fill();g.stroke();g.beginPath();g.moveTo(-66,0);g.lineTo(-90,-15);g.lineTo(-90,15);g.closePath();g.fill();g.fillRect(-10,22,20,6);g.restore();g.save();g.translate(bx,by);g.rotate(PI/2+draw.a);g.font='bold 12px Orbitron,sans-serif';g.textAlign='center';g.textBaseline='middle';g.fillStyle='#fff';g.fillText(b[0],0,0);g.restore()})}
@@ -634,20 +745,16 @@ function drawMap(){
  else {
   const cityLabels=[
    {name:'NEON SQUARE',x:0,y:0,c:'#77f6ff'},
-   {name:'GLASSLINE CENTER',x:-2.7,y:-2.1,c:'#77f6ff'},
-   {name:'PALMVIEW',x:5.2,y:2.1,c:'#b6f59a'},
+   {name:'CHUCKLENUT BOULEVARD',x:0,y:0,c:'#77f6ff'},
    {name:'MAPLE RIDGE',x:-5.2,y:-2.4,c:'#b6f59a'},
-   {name:'REDFIELD FARMS',x:10,y:1.4,c:'#f2dc91'},
-   {name:'PINEWOOD',x:-7.4,y:4.2,c:'#c6e6a0'},
+   {name:'VINEWOOD',x:-7.4,y:4.2,c:'#c6e6a0'},
    {name:'COYOTE FLATS',x:-9.2,y:-3.5,c:'#ffe0a1'},
    {name:'MIRAGE VALLEY',x:1.4,y:9.4,c:'#ffe0a1'},
    {name:'PALECO BAY',x:-13.1,y:-10.7,c:'#ffe0a1'},
    {name:'VINEWOOD HEIGHTS',x:1.1,y:-2.1,c:'#ff9acb'},
-   {name:'FLASHBACK VIDEO',x:-2.1,y:2.1,c:'#8df4ff'},
-   {name:'WONKA WOODS',x:8.1,y:1.1,c:'#f4a5ff'},
    {name:'MAJOR MEADOWS',x:3.1,y:4.1,c:'#b6f59a'},
    {name:'LEIF’S CROSSING',x:-4.1,y:7.1,c:'#b6f59a'},
-   {name:'FIRST STATE FIELDS',x:13.1,y:2.1,c:'#f2dc91'}
+   {name:'GIBBY TOWN',x:13.1,y:2.1,c:'#f2dc91'}
   ];
   mg.save();mg.textAlign='center';mg.textBaseline='middle';
   for(const lab of cityLabels){
@@ -765,6 +872,7 @@ function draw(){
  const fl=Math.floor(time*8)%2;
  for(let i=i0;i<=i1;i++)for(let j=j0;j<=j1;j++){const d=donutAt(i,j);if(d)drawDonut(d.x,d.y)}
  if(trail.length>1&&CFG.trail!='none'){g.globalCompositeOperation='lighter';g.lineCap='round';g.lineJoin='round';for(let k=1;k<trail.length;k++){const A=trail[k-1],Bp=trail[k],age=(time-Bp.t)/1.4;if(age>=1)continue;const al=1-age,tc=CFG.trail;g.strokeStyle=tc=='cyan'?`rgba(0,240,255,${al})`:tc=='pink'?`rgba(255,43,214,${al})`:tc=='fire'?`hsla(${20+age*35},100%,55%,${al})`:`hsla(${(time*120+k*8)%360|0},100%,60%,${al})`;g.lineWidth=7*(1-age*.6);g.beginPath();g.moveTo(A.x,A.y);g.lineTo(Bp.x,Bp.y);g.stroke()}g.globalCompositeOperation='source-over'}
+ drawSecretMarkers();
  for(const q of peds)drawPed(q);
  drawRoadblocks();if(near)drawNear();cone2(p.x,p.y,p.a,240,.3);traf.forEach(c=>cone2(c.x,c.y,c.a,120,.14));cops.forEach(c=>cone2(c.x,c.y,c.a,140,.16));traf.forEach(c=>car(c.x,c.y,c.a,c.cfg,{hl:1}));
  cops.forEach(c=>{
@@ -789,5 +897,3 @@ function draw(){
 }
 requestAnimationFrame(loop);
 </script></body></html>
-
-
